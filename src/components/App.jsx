@@ -39,21 +39,17 @@ export class App extends React.Component {
       ...contact,
     };
 
-    const notify = () => {
-      toast.error(`${contact.name} is already in contacts.`, {
+    if (checkAddName) {
+      // return alert(`${contact.name} is already in contacts.`);
+      return toast.error(`${name} is already in contacts.`, {
         position: 'top-center',
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
       });
-    };
-
-    if (checkAddName) {
-      // return alert(`${contact.name} is already in contacts.`);
-      return notify();
     }
 
     this.setState(prev => {
@@ -119,7 +115,7 @@ export class App extends React.Component {
         <ToastContainer
           theme="colored"
           position="top-center"
-          autoClose={5000}
+          autoClose={3000}
           hideProgressBar={false}
           newestOnTop
           closeOnClick
