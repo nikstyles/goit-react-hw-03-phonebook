@@ -107,10 +107,14 @@ export class App extends React.Component {
 
           <h2 className={s.phonebook__second_title}>Contacts</h2>
           <Filter input={filter} onChange={this.handleChange} />
-          <ContactList
-            contacts={contacts}
-            onDeleteContact={this.deleteContact}
-          />
+          {contacts.length === 0 ? (
+            <p className={s.empty__text}>Phone book is empty</p>
+          ) : (
+            <ContactList
+              contacts={contacts}
+              onDeleteContact={this.deleteContact}
+            />
+          )}
         </div>
         <ToastContainer
           theme="colored"

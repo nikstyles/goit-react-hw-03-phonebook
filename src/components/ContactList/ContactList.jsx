@@ -8,20 +8,16 @@ export default class ContactList extends Component {
     const { contacts, onDeleteContact } = this.props;
     return (
       <>
-        {contacts.length === 0 ? (
-          <p className={s.empty__text}>Phone book is empty</p>
-        ) : (
-          <ul className={s.contacts__list}>
-            {contacts.map(({ id, name, number }) => (
-              <ContactItem
-                id={id}
-                name={name}
-                number={number}
-                onDeleteContact={onDeleteContact}
-              />
-            ))}
-          </ul>
-        )}
+        <ul className={s.contacts__list}>
+          {contacts.map(({ id, name, number }) => (
+            <ContactItem
+              id={id}
+              name={name}
+              number={number}
+              onDeleteContact={onDeleteContact}
+            />
+          ))}
+        </ul>
       </>
     );
   }
